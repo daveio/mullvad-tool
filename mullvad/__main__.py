@@ -4,7 +4,7 @@ import mullvad
 
 
 def __main__():
-    pprint(mullvad.get_servers())
+    mullvad.parse_servers()
 
 
 if __name__ == "__main__":
