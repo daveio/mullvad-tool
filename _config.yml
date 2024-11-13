@@ -43,17 +43,18 @@ collections:
     permalink: /blog/:year/:month/:day/:title/
     output: true
 exclude:
-  - Gemfile
-  - Gemfile.lock
+  - _theme/
   - .idea/
-  - .gitignore
-  - README.md
-  - vendor
-  - .sass-cache/
   - .jekyll-cache/
+  - .sass-cache/
   - node_modules/
+  - vendor
   - vendor/bundle/
+  - vendor/bundle/ruby/
   - vendor/cache/
   - vendor/gems/
   - vendor/ruby/
-  - vendor/bundle/ruby/
+  - .gitignore
+  - Gemfile
+  - Gemfile.lock
+  - README.md
