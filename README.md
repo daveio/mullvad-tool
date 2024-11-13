@@ -21,3 +21,6 @@ Generate Mikrotik script for WireGuard config using the config file
 ### `mullvad openvpn [userpass] [certificate] [config]`
 
 Generate Mikrotik script for OpenVPN config using the userpass file, the certificate, and the config file itself
+
+[link-wg]: https://mullvad.net/en/account/wireguard-config
+[link-ovpn]: https://mullvad.net/en/account/openvpn-config
