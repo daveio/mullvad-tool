@@ -1,5 +1,8 @@
+from codecs import encode
 from json import loads
 
+from cryptography.hazmat.primitives import serialization
+from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
 from requests import get
 
 
@@ -30,3 +33,23 @@ def parse_servers():
     """
     print(interface_template)
     print(peer_template)
+
+
+def generate_keypair():
+    private_key = X25519PrivateKey.generate()
+    private_bytes = private_key.private_bytes(
+        encoding=serialization.Encoding.Raw,
+        format=serialization.PrivateFormat.Raw,
+        encryption_algorithm=serialization.NoEncryption(),
+    )
+    private_text = encode(private_bytes, "base64").decode("utf8").strip()
+    public_bytes = private_key.public_key().public_bytes(
+        encoding=serialization.Encoding.Raw, format=serialization.PublicFormat.Raw
+    )
+    public_text = encode(public_bytes, "base64").decode("utf8").strip()
+    print("Private key: ", private_text)
+    print(" Public key: ", public_text)
+
+
+def create_device(account_id, private_key):
+    pass

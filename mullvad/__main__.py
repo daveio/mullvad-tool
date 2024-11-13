@@ -2,7 +2,7 @@ import mullvad
 
 
 def __main__():
-    mullvad.parse_servers()
+    mullvad.generate_keypair()
 
 
 if __name__ == "__main__":
