@@ -14,7 +14,6 @@ gem 'jekyll', '~> 4.3.4'
 # gem 'github-pages', group: :jekyll_plugins
 # If you have any plugins, put them here!
 group :jekyll_plugins do
-  gem 'jekyll-remote-theme', '~> 0.4.3'
   gem 'jekyll-feed', '~> 0.12'
   gem 'jekyll-redirect-from', '~> 0.16.0'
   gem 'jekyll-seo-tag', '~> 2.8'

@@ -1,4 +1,4 @@
-title: "mullvad :: docs"
+title: mullvad
 email: dave@dave.io
 lang: en-GB
 description: >-
@@ -7,9 +7,8 @@ baseurl: /
 url: https://mullvad.dave.io
 twitter_username: syn
 github_username: daveio
-git_address: https://github.com/aksakalli/jekyll-doc-theme
-git_edit_address: https://github.com/aksakalli/jekyll-doc-theme/blob/gh-pages
-remote_theme: aksakalli/jekyll-doc-theme@gh-pages # https://github.com/aksakalli/jekyll-doc-theme
+git_address: https://github.com/daveio/mullvad
+git_edit_address: https://github.com/daveio/mullvad/blob/main
 plugins:
   - jekyll-remote-theme
   - jekyll-feed
