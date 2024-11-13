@@ -3,8 +3,8 @@ title: Bootstrap Features
 permalink: /docs/bootstrap/
 ---
 
-
 ## Buttons
+
 <p>
 <a href="#" class="btn btn-default">Default</a>
 <a href="#" class="btn btn-primary">Primary</a>
@@ -87,8 +87,8 @@ permalink: /docs/bootstrap/
 <a href="#" class="btn btn-primary">Default button</a>
 <a href="#" class="btn btn-primary btn-sm">Small button</a>
 <a href="#" class="btn btn-primary btn-xs">Mini button</a>
-</p>
 
+</p>
 
 ## Typography
 
@@ -99,7 +99,6 @@ permalink: /docs/bootstrap/
 <p class="text-danger">Donec ullamcorper nulla non metus auctor fringilla.</p>
 <p class="text-success">Duis mollis, est non commodo luctus, nisi erat porttitor ligula.</p>
 <p class="text-info">Maecenas sed diam eget risus varius blandit sit amet non magna.</p>
-
 
 ## Tables
 
@@ -158,7 +157,6 @@ permalink: /docs/bootstrap/
   </tbody>
 </table>
 
-
 ## Tabs
 
 <ul class="nav nav-tabs">
@@ -201,7 +199,6 @@ permalink: /docs/bootstrap/
 <span class="label label-danger">Danger</span>
 <span class="label label-info">Info</span>
 </p>
-
 
 ## List groups
 
@@ -249,7 +246,6 @@ permalink: /docs/bootstrap/
         </div>
     </div>
 </div>
-
 
 ## Panels
 
@@ -329,8 +325,8 @@ permalink: /docs/bootstrap/
             </div>
         </div>
     </div>
-</div>
 
+</div>
 
 ## Wells
 

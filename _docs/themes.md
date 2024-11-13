@@ -42,9 +42,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Cyborg</h3>
         <p>Jet black and electric blue</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -56,9 +56,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Darkly</h3>
         <p>Flatly in night mode</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -70,9 +70,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Flatly</h3>
         <p>Flat and modern</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -84,9 +84,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Journal</h3>
         <p>Crisp like a new sheet of paper</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -98,9 +98,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Lumen</h3>
         <p>Light and shadow</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -112,9 +112,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Paper</h3>
         <p>Material is the metaphor</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -126,9 +126,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Readable</h3>
         <p>Optimized for legibility</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -140,9 +140,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Sandstone</h3>
         <p>A touch of warmth</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -154,9 +154,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Simplex</h3>
         <p>Mini and minimalist</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -168,10 +168,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Slate</h3>
         <p>Shades of gunmetal gray</p>
 
-
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -183,9 +182,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Solar</h3>
         <p>A spin on Solarized</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -197,9 +196,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Spacelab</h3>
         <p>Silvery and sleek</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -211,9 +210,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Superhero</h3>
         <p>The brave and the blue</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -225,9 +224,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>United</h3>
         <p>Ubuntu orange and unique font</p>
 
-
       </div>
     </div>
+
   </div>
 
   <div class="col-lg-4 col-sm-6">
@@ -239,10 +238,9 @@ By default, this website uses `paper` theme, but you can change it to another [b
         <h3>Yeti</h3>
         <p>A friendly foundation</p>
 
-
       </div>
     </div>
-  </div>
 
+  </div>
 
 </div>
