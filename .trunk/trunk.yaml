@@ -7,7 +7,7 @@ cli:
 plugins:
   sources:
     - id: trunk
-      ref: v1.6.4
+      ref: v1.6.5
       uri: https://github.com/trunk-io/plugins
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
@@ -17,6 +17,7 @@ runtimes:
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   enabled:
+    - actionlint@1.7.4
     - checkov@3.2.292
     - git-diff-check
     - markdownlint@0.42.0
@@ -24,6 +25,11 @@ lint:
     - prettier@3.3.3
     - trufflehog@3.83.6
     - yamllint@1.35.1
+  ignore:
+    - linters:
+        - prettier
+      paths:
+        - "*.html"
 actions:
   enabled:
     - trunk-announce

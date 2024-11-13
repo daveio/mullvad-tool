@@ -22,21 +22,20 @@ Docs are [collections](https://jekyllrb.com/docs/collections/) of pages stored u
 
 **1.** Create a new Markdown as `_docs/my-page.md` and write [front matter](https://jekyllrb.com/docs/frontmatter/) & content such as:
 
-```
+```yaml
 ---
 title: My Page
 permalink: /docs/my-page/
 ---
-
 Hello World!
 ```
 
 **2.** Add the pagename to `_data/docs.yml` file in order to list in docs navigation panel:
 
-```
+```yaml
 - title: My Group Title
   docs:
-  - my-page
+    - my-page
 ```
 
 ### Blog posts
