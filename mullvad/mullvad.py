@@ -36,15 +36,17 @@ def parse_servers():
 
 
 def generate_keypair():
+    encoding = serialization.Encoding.Raw
+    format = serialization.PrivateFormat.Raw
     private_key = X25519PrivateKey.generate()
     private_bytes = private_key.private_bytes(
-        encoding=serialization.Encoding.Raw,
-        format=serialization.PrivateFormat.Raw,
+        encoding=encoding,
+        format=format,
         encryption_algorithm=serialization.NoEncryption(),
     )
     private_text = encode(private_bytes, "base64").decode("utf8").strip()
     public_bytes = private_key.public_key().public_bytes(
-        encoding=serialization.Encoding.Raw, format=serialization.PublicFormat.Raw
+        encoding=encoding, format=format
     )
     public_text = encode(public_bytes, "base64").decode("utf8").strip()
     print("Private key: ", private_text)
