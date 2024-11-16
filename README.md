@@ -12,15 +12,25 @@ If you want to generate config for multiple servers, you can set the 'Country' c
 
 ### `mullvad keygen`
 
-Generate WireGuard keypair
+Generate public/private keypair for Wireguard.
+
+`-m INTERFACE` - Generate Mikrotik script to set key on interface `INTERFACE`.
+
+`-s` - Print keys to be used by a script as `PRIVATEKEY PUBLICKEY`.
 
 ### `mullvad wireguard [file]`
 
-Generate Mikrotik script for WireGuard config using the config file
+Generate Mikrotik script for WireGuard config using the config file.
+
+`-i PREFIX` - Use `PREFIX` before interface names.
+
+`-p PREFIX` - Use `PREFIX` before peer names.
 
 ### `mullvad openvpn [userpass] [certificate] [config]`
 
 Generate Mikrotik script for OpenVPN config using the userpass file, the certificate, and the config file itself
+
+`-i PREFIX` - Use `PREFIX` before interface names.
 
 [link-wg]: https://mullvad.net/en/account/wireguard-config
 [link-ovpn]: https://mullvad.net/en/account/openvpn-config

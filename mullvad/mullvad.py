@@ -37,21 +37,28 @@ def parse_servers():
 
 def generate_keypair():
     encoding = serialization.Encoding.Raw
-    format = serialization.PrivateFormat.Raw
+    priv_format = serialization.PrivateFormat.Raw
+    pub_format = serialization.PublicFormat.Raw
     private_key = X25519PrivateKey.generate()
     private_bytes = private_key.private_bytes(
         encoding=encoding,
-        format=format,
+        format=priv_format,
         encryption_algorithm=serialization.NoEncryption(),
     )
     private_text = encode(private_bytes, "base64").decode("utf8").strip()
     public_bytes = private_key.public_key().public_bytes(
-        encoding=encoding, format=format
+        encoding=encoding, format=pub_format
     )
     public_text = encode(public_bytes, "base64").decode("utf8").strip()
-    print("Private key: ", private_text)
-    print(" Public key: ", public_text)
+    return {
+        "private": private_text,
+        "public": public_text,
+    }
 
 
 def create_device(account_id, private_key):
+    pass
+
+
+def parse_config(config_path):
     pass
