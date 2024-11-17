@@ -6,15 +6,21 @@ from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
 from requests import get
 
 
+class Keypair:
+    def __init__(self, private, public):
+        self.private = private
+        self.public = public
+
+    def __repr__(self):
+        return f"Keypair(private={self.private}, public={self.public})"
+
+
 def get_servers(url="https://api.mullvad.net/app/v1/relays"):
     resp = get(url, timeout=30).content
     return loads(resp)
 
 
-def parse_servers():
-    # json = get_servers()
-    # data = json.get("wireguard")
-    # relays = [relay for relays in data["relays"]]
+def generate_wireguard_config():
     interface_template = """  /interface/wireguard/add \\
         add listen-port=[[LPORT]] \\
         mtu=1420 \\
@@ -50,10 +56,7 @@ def generate_keypair():
         encoding=encoding, format=pub_format
     )
     public_text = encode(public_bytes, "base64").decode("utf8").strip()
-    return {
-        "private": private_text,
-        "public": public_text,
-    }
+    return Keypair(private_text, public_text)
 
 
 def create_device(account_id, private_key):
