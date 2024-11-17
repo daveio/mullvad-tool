@@ -1,3 +1,5 @@
+import os
+
 import click
 
 import mullvad
@@ -30,23 +32,26 @@ def version():
     help="Print keys for a script, as PRIVATEKEY PUBLICKEY",
 )
 def keygen(mikrotik_interface, print_script):
-    keypair = mullvad.generate_keypair()
-    if mikrotik_interface is not None:
-        click.echo("Not yet implemented")
-        pass
-    elif print_script:
-        click.echo("%s %s" % (keypair.private, keypair.public))
-    else:
-        click.echo("Private key: %s" % keypair.private)
-        click.echo(" Public key: %s" % keypair.public)
+    click.echo(mullvad.compose_keypair(mikrotik_interface, print_script))
 
 
 @cli.command()
 @click.argument("config_file", type=click.Path(exists=True))
-@click.option("-i", "interface_prefix", help="Prefix created interface names with TEXT")
-@click.option("-p", "peer_prefix", help="Prefix created peer names with TEXT")
-def wireguard(interface_prefix, peer_prefix):
-    click.echo("Not yet implemented")
+@click.option(
+    "-i", "interface_prefix", help="Prefix interface names with TEXT", default="wg-"
+)
+@click.option(
+    "-p", "peer_prefix", help="Prefix created peer names with TEXT", default="peer-"
+)
+@click.option(
+    "-l", "listen_port", help="Listen port for WireGuard interface", default=51820
+)
+def wireguard(config_file, interface_prefix, peer_prefix, listen_port):
+    click.echo(
+        mullvad.compose_wireguard(
+            config_file, interface_prefix, peer_prefix, listen_port
+        )
+    )
 
 
 @cli.command()
@@ -55,7 +60,41 @@ def wireguard(interface_prefix, peer_prefix):
 @click.argument("config_file", type=click.Path(exists=True))
 @click.option("-i", "interface_prefix", help="Prefix created interface names with TEXT")
 def openvpn(userpass_file, certificate_file, config_file, interface_prefix):
-    click.echo("Not yet implemented")
+    click.echo(
+        mullvad.compose_openvpn(
+            userpass_file, certificate_file, config_file, interface_prefix
+        )
+    )
+
+
+@cli.group()
+def portgen():
+    pass
+
+
+@portgen.command()
+@click.argument("starting_port", type=int, default=51820)
+@click.option("-n", "run_name", type=str, help="Name of this run", default="unnamed")
+@click.option(
+    "-f",
+    "state_file",
+    help="File to keep state over multiple invocations",
+    default=os.path.join(click.get_app_dir("mullvad"), "state.json"),
+)
+def init(starting_port, run_name, state_file):
+    click.echo(mullvad.init_portgen(starting_port, run_name, state_file))
+
+
+@portgen.command()
+@click.option("-n", "run_name", type=str, help="Name of this run", default="unnamed")
+@click.option(
+    "-f",
+    "state_file",
+    help="File to keep state over multiple invocations",
+    default=os.path.join(click.get_app_dir("mullvad"), "state.json"),
+)
+def run(run_name, state_file):
+    click.echo(mullvad.portgen(run_name, state_file))
 
 
 if __name__ == "__main__":
