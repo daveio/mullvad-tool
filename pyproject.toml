@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "mullvad-tool"
+name = "mullvad_tool"
 version = "0.1.0"
 description = "Utility to generate Mikrotik configuration scripts from Mullvad configuration files, among other things"
 authors = ["Dave Williams <dave@dave.io>"]
