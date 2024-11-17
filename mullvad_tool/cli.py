@@ -2,10 +2,10 @@ import os
 
 import click
 
-import mullvad_tool.keypair as cmd_keypair
-import mullvad_tool.openvpn as cmd_openvpn
-import mullvad_tool.portgen as cmd_portgen
-import mullvad_tool.wireguard as cmd_wireguard
+from .keypair import compose_keypair
+from .openvpn import compose_openvpn
+from .portgen import init_portgen, run_portgen
+from .wireguard import compose_wireguard
 
 mullvad_version = "0.1.0"
 
@@ -35,7 +35,7 @@ def version():
     help="Print keys for a script, as PRIVATEKEY PUBLICKEY",
 )
 def keygen(mikrotik_interface, print_script):
-    click.echo(cmd_keypair.compose_keypair(mikrotik_interface, print_script))
+    click.echo(compose_keypair(mikrotik_interface, print_script))
 
 
 @cli.command()
@@ -51,9 +51,7 @@ def keygen(mikrotik_interface, print_script):
 )
 def wireguard(config_file, interface_prefix, peer_prefix, listen_port):
     click.echo(
-        cmd_wireguard.compose_wireguard(
-            config_file, interface_prefix, peer_prefix, listen_port
-        )
+        compose_wireguard(config_file, interface_prefix, peer_prefix, listen_port)
     )
 
 
@@ -64,9 +62,7 @@ def wireguard(config_file, interface_prefix, peer_prefix, listen_port):
 @click.option("-i", "interface_prefix", help="Prefix created interface names with TEXT")
 def openvpn(userpass_file, certificate_file, config_file, interface_prefix):
     click.echo(
-        cmd_openvpn.compose_openvpn(
-            userpass_file, certificate_file, config_file, interface_prefix
-        )
+        compose_openvpn(userpass_file, certificate_file, config_file, interface_prefix)
     )
 
 
@@ -85,7 +81,7 @@ def portgen():
     default=os.path.join(click.get_app_dir("mullvad"), "state.json"),
 )
 def init(starting_port, run_name, state_file):
-    click.echo(cmd_portgen.init_portgen(starting_port, run_name, state_file))
+    click.echo(init_portgen(starting_port, run_name, state_file))
 
 
 @portgen.command()
@@ -97,7 +93,7 @@ def init(starting_port, run_name, state_file):
     default=os.path.join(click.get_app_dir("mullvad"), "state.json"),
 )
 def run(run_name, state_file):
-    click.echo(cmd_portgen.portgen(run_name, state_file))
+    click.echo(run_portgen(run_name, state_file))
 
 
 if __name__ == "__main__":

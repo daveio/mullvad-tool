@@ -17,7 +17,7 @@ def init_portgen(starting_port, run_name, state_file):
     return "Ready to generate ports with portgen run"
 
 
-def portgen(run_name, state_file):
+def run_portgen(run_name, state_file):
     with open(state_file, "r") as f:
         data = load(f)
     port = data[run_name]
