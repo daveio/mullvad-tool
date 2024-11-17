@@ -1,10 +1,11 @@
 import os
 
 import click
-import keypair as cmd_keypair
-import openvpn as cmd_openvpn
-import portgen as cmd_portgen
-import wireguard as cmd_wireguard
+
+import mullvad.keypair as cmd_keypair
+import mullvad.openvpn as cmd_openvpn
+import mullvad.portgen as cmd_portgen
+import mullvad.wireguard as cmd_wireguard
 
 mullvad_version = "0.1.0"
 

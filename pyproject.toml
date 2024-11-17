@@ -4,6 +4,7 @@ version = "0.1.0"
 description = ""
 authors = ["Dave Williams <dave@dave.io>"]
 readme = "README.md"
+include = ["mullvad/**"]
 
 [tool.poetry.dependencies]
 python = "^3.13"
@@ -20,3 +21,6 @@ bpython = "^0.24"
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.poetry.scripts]
+mullvad = 'cli:cli'
