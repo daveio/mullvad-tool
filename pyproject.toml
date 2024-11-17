@@ -1,5 +1,5 @@
 [tool.poetry]
-name = "mullvad"
+name = "mullvad-tool"
 version = "0.1.0"
 description = "Utility to generate Mikrotik configuration scripts from Mullvad configuration files, among other things"
 authors = ["Dave Williams <dave@dave.io>"]
@@ -22,4 +22,4 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.poetry.scripts]
-mullvad = 'cli:cli'
+mullvad-tool = 'cli:cli'
