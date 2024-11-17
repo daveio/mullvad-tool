@@ -1,8 +1,10 @@
 import os
 
 import click
-
-import mullvad
+import keypair as cmd_keypair
+import openvpn as cmd_openvpn
+import portgen as cmd_portgen
+import wireguard as cmd_wireguard
 
 mullvad_version = "0.1.0"
 
@@ -32,7 +34,7 @@ def version():
     help="Print keys for a script, as PRIVATEKEY PUBLICKEY",
 )
 def keygen(mikrotik_interface, print_script):
-    click.echo(mullvad.compose_keypair(mikrotik_interface, print_script))
+    click.echo(cmd_keypair.compose_keypair(mikrotik_interface, print_script))
 
 
 @cli.command()
@@ -48,7 +50,7 @@ def keygen(mikrotik_interface, print_script):
 )
 def wireguard(config_file, interface_prefix, peer_prefix, listen_port):
     click.echo(
-        mullvad.compose_wireguard(
+        cmd_wireguard.compose_wireguard(
             config_file, interface_prefix, peer_prefix, listen_port
         )
     )
@@ -61,7 +63,7 @@ def wireguard(config_file, interface_prefix, peer_prefix, listen_port):
 @click.option("-i", "interface_prefix", help="Prefix created interface names with TEXT")
 def openvpn(userpass_file, certificate_file, config_file, interface_prefix):
     click.echo(
-        mullvad.compose_openvpn(
+        cmd_openvpn.compose_openvpn(
             userpass_file, certificate_file, config_file, interface_prefix
         )
     )
@@ -82,7 +84,7 @@ def portgen():
     default=os.path.join(click.get_app_dir("mullvad"), "state.json"),
 )
 def init(starting_port, run_name, state_file):
-    click.echo(mullvad.init_portgen(starting_port, run_name, state_file))
+    click.echo(cmd_portgen.init_portgen(starting_port, run_name, state_file))
 
 
 @portgen.command()
@@ -94,7 +96,7 @@ def init(starting_port, run_name, state_file):
     default=os.path.join(click.get_app_dir("mullvad"), "state.json"),
 )
 def run(run_name, state_file):
-    click.echo(mullvad.portgen(run_name, state_file))
+    click.echo(cmd_portgen.portgen(run_name, state_file))
 
 
 if __name__ == "__main__":
