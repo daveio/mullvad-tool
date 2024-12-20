@@ -3,6 +3,8 @@ from json import dump, load
 
 import click
 
+from .util import default_state_file
+
 
 def ensure_dir(path):
     """Creates the specified directory if it doesn't already exist."""
@@ -10,7 +12,7 @@ def ensure_dir(path):
         os.makedirs(path)
 
 
-def init_portgen(starting_port, run_name, state_file):
+def init_portgen(starting_port, run_name, state_file=default_state_file):
     ensure_dir(click.get_app_dir("mullvad"))
     with open(state_file, "w") as f:
         dump({run_name: starting_port}, f)

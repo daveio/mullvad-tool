@@ -8,13 +8,13 @@ readme = "README.md"
 [tool.poetry.dependencies]
 python = "^3.10"
 requests = "^2.32.3"
-cryptography = "^43.0.3"
+cryptography = "^44.0.0"
 click = "^8.1.7"
 wireguard-tools = "^0.5.0"
 chevron = "^0.14.0"
 
 [tool.poetry.group.dev.dependencies]
-ipython = "^8.29.0"
+ipython = "^8.31.0"
 bpython = "^0.24"
 
 [build-system]
