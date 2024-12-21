@@ -7,27 +7,27 @@ cli:
 plugins:
   sources:
     - id: trunk
-      ref: v1.6.4
+      ref: v1.6.6
       uri: https://github.com/trunk-io/plugins
 # Many linters and tools depend on runtimes - configure them here. (https://docs.trunk.io/runtimes)
 runtimes:
   enabled:
-    - node@18.12.1
+    - node@18.20.5
     - python@3.10.8
 # This is the section where you manage your linters. (https://docs.trunk.io/check/configuration)
 lint:
   enabled:
-    - osv-scanner@1.9.1
-    - bandit@1.7.10
+    - osv-scanner@1.9.2
+    - bandit@1.8.0
     - black@24.10.0
-    - checkov@3.2.287
+    - checkov@3.2.343
     - git-diff-check
     - isort@5.13.2
-    - markdownlint@0.42.0
-    - prettier@3.3.3
-    - ruff@0.7.3
+    - markdownlint@0.43.0
+    - prettier@3.4.2
+    - ruff@0.8.4
     - taplo@0.9.3
-    - trufflehog@3.83.6
+    - trufflehog@3.87.2
     - yamllint@1.35.1
 actions:
   enabled:
@@ -38,6 +38,7 @@ actions:
 tools:
   disabled:
   enabled:
+    - sourcery@1.27.0
     - pyright@1.1.391
     - autopep8@2.3.1
     - mypy@1.14.0
