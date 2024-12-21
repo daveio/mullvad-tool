@@ -19,11 +19,11 @@ def compose_keypair(mikrotik_interface, print_script):
         return "Not yet implemented"
     if print_script:
         return f"{keypair.private} {keypair.public}"
-    return (
-        f"Private key: {keypair.private}"
-        + "\n"
-        + f" Public key: {keypair.public}"
-        + "\n"
+    return """
+        Private key : {private}
+        Public key  : {public}
+        """.format(
+        private=keypair.private, public=keypair.public
     )
 
 
