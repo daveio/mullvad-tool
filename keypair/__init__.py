@@ -1,4 +1,5 @@
 from codecs import encode
+from textwrap import dedent
 
 from cryptography.hazmat.primitives import serialization
 from cryptography.hazmat.primitives.asymmetric.x25519 import X25519PrivateKey
@@ -19,11 +20,11 @@ def compose_keypair(mikrotik_interface, print_script):
         return "Not yet implemented"
     if print_script:
         return f"{keypair.private} {keypair.public}"
-    return """
-        Private key : {private}
-        Public key  : {public}
-        """.format(
-        private=keypair.private, public=keypair.public
+    return dedent(
+        f"""
+        Private key : {keypair.private}
+        Public key  : {keypair.public}
+        """
     )
 
 
