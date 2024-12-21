@@ -17,14 +17,14 @@ def compose_keypair(mikrotik_interface, print_script):
     keypair = generate_keypair()
     if mikrotik_interface is not None:
         return "Not yet implemented"
-    elif print_script:
-        return "%s %s" % (keypair.private, keypair.public)
-    else:
-        retval = "Private key: %s" % keypair.private
-        retval = retval + "\n"
-        retval = retval + "Public key: %s" % keypair.public
-        retval = retval + "\n"
-        return retval
+    if print_script:
+        return f"{keypair.private} {keypair.public}"
+    return (
+        f"Private key: {keypair.private}"
+        + "\n"
+        + f" Public key: {keypair.public}"
+        + "\n"
+    )
 
 
 def generate_keypair():
