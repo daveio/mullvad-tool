@@ -3,7 +3,7 @@ from json import dump, load
 
 import click
 
-from .util import default_state_file
+from util import default_state_file
 
 
 def ensure_dir(path):

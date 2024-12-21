@@ -839,6 +839,17 @@ docs = ["myst-parser", "pydata-sphinx-theme", "sphinx"]
 test = ["argcomplete (>=3.0.3)", "mypy (>=1.7.0)", "pre-commit", "pytest (>=7.0,<8.2)", "pytest-mock", "pytest-mypy-testing"]
 
 [[package]]
+name = "types-chevron"
+version = "0.14.2.20240310"
+description = "Typing stubs for chevron"
+optional = false
+python-versions = ">=3.8"
+files = [
+    {file = "types-chevron-0.14.2.20240310.tar.gz", hash = "sha256:01e33dea521a369ca36669db44d42ccd355287edb432cd5ebe985297bce50505"},
+    {file = "types_chevron-0.14.2.20240310-py3-none-any.whl", hash = "sha256:3583ccabdf11fbcabad48f26cda8814f3983b238635736c5bd02aa2fce196820"},
+]
+
+[[package]]
 name = "urllib3"
 version = "2.2.3"
 description = "HTTP library with thread-safe connection pooling, file post, and more."
@@ -896,4 +907,4 @@ segno = ">=1.5.2,<2.0.0"
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12.0"
-content-hash = "53147b4f225fa75edf027632f2ebfde3eae0d0e8162c544a333e4d43056bf1ba"
+content-hash = "448ce10ab56d9303b1554ed177c987e0f3f9a26cee2bbed4276eda3661e9041f"

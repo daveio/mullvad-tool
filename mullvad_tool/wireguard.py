@@ -8,8 +8,7 @@ from wireguard_tools import WireguardConfig
 def parse_wireguard_config(config_path):
     try:
         with open(config_path, "r") as f:
-            config = WireguardConfig.from_wgconfig(f).asdict()
-            return config
+            return WireguardConfig.from_wgconfig(f).asdict()
     except FileNotFoundError:
         return None
 
@@ -20,31 +19,28 @@ def compose_wireguard(config_file, interface_prefix, peer_prefix, listen_port):
     )
     if interface is None or peer is None:
         return "Failed to generate WireGuard configuration"
-    else:
-        retval = interface
-        retval = retval + "\n"
-        retval = retval + peer
-        retval = retval + "\n"
-        return retval
+    retval = interface
+    retval = retval + "\n"
+    retval = retval + peer
+    retval = retval + "\n"
+    return retval
 
 
 def generate_wireguard(config_file, interface_prefix, peer_prefix, listen_port):
     config = parse_wireguard_config(config_file)
     if config is None:
         return None, None
+    if match := re.search(r"([^/]+)\.conf$", config_file):
+        interface_name = match[1]
     else:
-        match = re.search(r"([^/]+)\.conf$", config_file)
-        if match:
-            interface_name = match.group(1)
-        else:
-            interface_name = secrets.token_hex(4)
-        interface_text = generate_wireguard_interface(
-            interface_name, interface_prefix, config["private_key"], listen_port
-        )
-        peer_text = generate_wireguard_peer(
-            interface_name, peer_prefix, interface_name, config
-        )
-        return interface_text, peer_text
+        interface_name = secrets.token_hex(4)
+    interface_text = generate_wireguard_interface(
+        interface_name, interface_prefix, config["private_key"], listen_port
+    )
+    peer_text = generate_wireguard_peer(
+        interface_name, peer_prefix, interface_name, config
+    )
+    return interface_text, peer_text
 
 
 def generate_wireguard_interface(interface_name, interface_prefix, private_key, port):
