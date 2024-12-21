@@ -2,12 +2,11 @@ import os
 
 import click
 
-from .keypair import compose_keypair
-from .openvpn import compose_openvpn
-from .portgen import init_portgen, run_portgen
-from .wireguard import compose_wireguard
-
-mullvad_version = "0.1.0"
+from keypair import compose_keypair
+from meta import version as mullvad_version
+from openvpn import compose_openvpn
+from portgen import init_portgen, run_portgen
+from wireguard import compose_wireguard
 
 
 @click.group()
@@ -17,7 +16,7 @@ def cli():
 
 @cli.command()
 def version():
-    click.echo("mullvad %s" % mullvad_version)
+    click.echo(f"mullvad {mullvad_version}")
 
 
 @cli.command()
