@@ -35,3 +35,11 @@ actions:
     - trunk-check-pre-push
     - trunk-fmt-pre-commit
     - trunk-upgrade-available
+tools:
+  disabled:
+  enabled:
+    - pyright@1.1.391
+    - autopep8@2.3.1
+    - mypy@1.14.0
+    - flake8@7.1.1
+    - pylint@3.3.2
