@@ -1,11 +1,12 @@
 import re
 import secrets
+from typing import Optional, Tuple
 
 import chevron
 from wireguard_tools import WireguardConfig
 
 
-def parse_wireguard_config(config_path):
+def parse_wireguard_config(config_path: str) -> Optional[dict]:
     try:
         with open(config_path, "r") as f:
             return WireguardConfig.from_wgconfig(f).asdict()
@@ -13,7 +14,12 @@ def parse_wireguard_config(config_path):
         return None
 
 
-def compose_wireguard(config_file, interface_prefix, peer_prefix, listen_port):
+def compose_wireguard(
+    config_file: str,
+    interface_prefix: Optional[str],
+    peer_prefix: Optional[str],
+    listen_port: int,
+) -> str:
     interface, peer = generate_wireguard(
         config_file, interface_prefix, peer_prefix, listen_port
     )
@@ -26,7 +32,12 @@ def compose_wireguard(config_file, interface_prefix, peer_prefix, listen_port):
     return retval
 
 
-def generate_wireguard(config_file, interface_prefix, peer_prefix, listen_port):
+def generate_wireguard(
+    config_file: str,
+    interface_prefix: Optional[str],
+    peer_prefix: Optional[str],
+    listen_port: int,
+) -> Tuple[Optional[str], Optional[str]]:
     config = parse_wireguard_config(config_file)
     if config is None:
         return None, None
@@ -43,7 +54,9 @@ def generate_wireguard(config_file, interface_prefix, peer_prefix, listen_port):
     return interface_text, peer_text
 
 
-def generate_wireguard_interface(interface_name, interface_prefix, private_key, port):
+def generate_wireguard_interface(
+    interface_name: str, interface_prefix: Optional[str], private_key: str, port: int
+) -> str:
     if interface_prefix is not None:
         interface_name = interface_prefix + interface_name
     template = """  /interface/wireguard/add \\
@@ -63,7 +76,9 @@ def generate_wireguard_interface(interface_name, interface_prefix, private_key, 
     )
 
 
-def generate_wireguard_peer(peer_name, peer_prefix, interface_name, config):
+def generate_wireguard_peer(
+    peer_name: str, peer_prefix: Optional[str], interface_name: str, config: dict
+) -> str:
     peer_config = config["peers"][0]
     if peer_prefix is not None:
         peer_name = peer_prefix + peer_name + "-" + str(peer_config["endpoint_port"])
